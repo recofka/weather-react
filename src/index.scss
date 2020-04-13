@@ -1,0 +1,116 @@
+$color-warm-primary: #fd803f;
+$color-warm-secondary: #f9445a;
+$color-cold-primary: #2f93cc;
+$color-cold-secondary: #4c19c6;
+$color-gray-med: #313131;
+$color-gray-dark: #323246;
+$color-white: #fff;
+$color-black: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "montseratt", sans-serif;
+
+  .app {
+    background: linear-gradient(
+      15deg,
+      $color-cold-secondary 0%,
+      $color-cold-primary 100%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    main {
+      min-height: 100vh;
+      padding: 1.5625rem;
+
+      .search-box {
+        width: 100%;
+        margin: 0 0 4.6875rem;
+
+        .search-bar {
+          display: block;
+          width: 100%;
+          padding: 0.9375rem;
+          appearance: none;
+          background: none;
+          border: none;
+          outline: none;
+          background-color: rgba($color: $color-white, $alpha: 0.5);
+          border-radius: 0 0 1rem 1rem;
+          margin-top: -1.5625rem;
+          box-shadow: 0 0.1875rem rgba($color: $color-black, $alpha: 0.2);
+
+          font-size: 1.25rem;
+          color: $color-gray-med;
+          transition: 0.4 ease;
+
+          &:focus {
+            background-color: rgba($color: $color-white, $alpha: 0.75);
+          }
+        }
+      }
+      .location-box {
+        .location {
+          color: $color-white;
+          font-size: 2rem;
+          font-weight: 500;
+          text-align: center;
+          text-shadow: 0.125rem 0.125rem
+            rgba($color: $color-gray-dark, $alpha: 0.5);
+        }
+        .date {
+          color: $color-white;
+          font-size: 1.25rem;
+          font-style: italic;
+          text-align: center;
+          text-shadow: 0.125rem 0.125rem
+            rgba($color: $color-gray-dark, $alpha: 0.5);
+        }
+      }
+      .weather-box {
+        text-align: center;
+        .temperature {
+          position: relative;
+          display: inline-block;
+          margin: 30px auto;
+          background-color: rgba($color: $color-white, $alpha: 0.2);
+          border-radius: 1rem;
+
+          padding: 0.9375rem 1.5625rem;
+
+          color: $color-white;
+          font-size: 6.375rem;
+          font-weight: 900;
+
+          text-shadow: 0.1875rem 0.1875rem
+            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-align: center;
+          box-shadow: 0.1875rem 0.1875rem
+            rgba($color: $color-white, $alpha: 0.2);
+        }
+        .weather-state {
+          color: $color-white;
+          font-size: 3rem;
+          font-weight: 700;
+          text-shadow: 0.1875rem 0.1875rem
+            rgba($color: $color-gray-dark, $alpha: 0.5);
+        }
+      }
+    }
+  }
+
+  .warm {
+    background: linear-gradient(
+      15deg,
+      $color-warm-secondary 50%,
+      $color-warm-primary 100%
+    );
+  }
+}
