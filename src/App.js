@@ -1,67 +1,62 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import Search from './components/Search';
+import Location from './components/Location';
+import Weather from './components/Weather';
 
 const api = {
   key: "994bd4a435f53712abee778d3ae2740d",
   baseURL: "https://api.openweathermap.org/data/2.5/"
 }
-function App() {
-  const [query, setQuery] = useState('');
-  const [weather, setWeather] = useState({});
 
-  const search = event => {
-    if (event.key === "Enter") {
-      fetch(`${api.baseURL}weather?q=${query}&units=metric&APPID=${api.key} `)
-        .then(res => res.json())
-        .then(result => {
-          setWeather(result);
-          setQuery('');
-          console.log(result);
-        });
-    }
+export default class components extends Component {
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    wind: undefined,
+    description: undefined,
+    icon: undefined,
+    error: undefined,
   }
 
-  const dataBuilder = (d) => {
+  getWeather = async (e) => {
+    e.preventDefault();
+    const citySearch = e.target.elements.city.value;
+    const api_call = await fetch(`${api.baseURL}weather?q=${citySearch}&units=metric&APPID=${api.key} `);
+    const dataWeather = await api_call.json();
+    // console.log('dataWeather: ', dataWeather);
+    this.setState({
+      temperature: dataWeather.main.temp,
+      city: dataWeather.name,
+      country: dataWeather.sys.country,
+      wind: dataWeather.wind.speed,
+      description: dataWeather.weather[0].description,
+      icon: dataWeather.weather[0].icon,
+    })
+  }
+
+  dataBuilder = (d) => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
-
     return `${day} ${date} ${month} ${year}`
   }
 
-  return (
-    <div className={typeof weather.main != "undefined" ? ((weather.main.temp > 18) ? 'app warm' : 'app') : 'app'}>
-      <main>
-        <div className="search-box">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search..."
-            onChange={e => setQuery(e.target.value)}
-            value={query}
-            onKeyPress={search}
-          />
+  render() {
+    // console.log('App state: ',this.state)
+    return (
+      <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}>
+        <main>
+        <Search getWeather={this.getWeather} />
+        <div>
+          <Location city={this.state.city} location={this.state.country} date={this.dataBuilder(new Date())} />
+          <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
         </div>
-        {typeof weather.main != "undefined" ? (
-          <div>
-            <div className="location-box">
-              <div className="location">{weather.name}, {weather.sys.country}</div>
-              <div className="date">{dataBuilder(new Date())}</div>
-            </div>
-            <div className="weather-box">
-              <div className="temperature"> {Math.round(weather.main.temp)}°c</div>
-              <div className="weather-state">{weather.weather[0].description}</div>
-              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].main} Icon`}/>
-              
-            </div>
-          </div>
-        ) : ('')}
-      </main>
-    </div>
-  );
+        </main>
+      </div>
+    );
+  }
 }
-
-export default App;
