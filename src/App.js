@@ -39,14 +39,13 @@ export default class components extends Component {
         <Search getWeather={this.getWeather} />
         <div>
             <div className="location-box">
-              <div className="location"></div>
-              <div className="date"></div>
+              <div className="location">Amsterdam, NL</div>
+              <div className="date">Wednesday 15 April 2020</div>
             </div>
             <div className="weather-box">
-              <div className="temperature"> °c</div>
-              <div className="weather-state"></div>
-              <img src={`http://openweathermap.org/img/wn/{weather.weather[0].icon}@2x.png`} alt=""/>
-              
+              <div className="temperature"> 11°c</div>
+              <div className="weather-state">clear sky</div>
+              <img src="https://openweathermap.org/img/wn/01d@2x.png" alt=""/>
             </div>
           </div>
       </div>
