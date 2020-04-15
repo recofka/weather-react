@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './components/Search';
 import Location from './components/Location';
+import Weather from './components/Weather';
 
 const api = {
   key: "994bd4a435f53712abee778d3ae2740d",
@@ -47,16 +48,11 @@ export default class components extends Component {
   render() {
     // console.log('App state: ',this.state)
     return (
-      
       <div>
         <Search getWeather={this.getWeather} />
         <div>
-          <Location city={this.state.city} location={this.state.country}  date={this.dataBuilder(new Date())}/>
-          <div className="weather-box">
-            <div className="temperature"> 11°c</div>
-            <div className="weather-state">clear sky</div>
-            <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          </div>
+          <Location city={this.state.city} location={this.state.country} date={this.dataBuilder(new Date())} />
+          <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
         </div>
       </div>
     );
