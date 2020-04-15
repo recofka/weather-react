@@ -48,12 +48,14 @@ export default class components extends Component {
   render() {
     // console.log('App state: ',this.state)
     return (
-      <div>
+      <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}>
+        <main>
         <Search getWeather={this.getWeather} />
         <div>
           <Location city={this.state.city} location={this.state.country} date={this.dataBuilder(new Date())} />
           <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
         </div>
+        </main>
       </div>
     );
   }
