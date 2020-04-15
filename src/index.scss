@@ -36,7 +36,8 @@ body {
 
         .search-bar {
           display: block;
-          width: 100%;
+          margin: 0 auto;
+          width: 70%;
           padding: 0.9375rem;
           appearance: none;
           background: none;
@@ -76,6 +77,13 @@ body {
       }
       .weather-box {
         text-align: center;
+        .type-message {
+          color: $color-white;
+          font-size: 2.375rem;
+          font-weight: 900;
+          text-shadow: 0.1875rem 0.1875rem
+            rgba($color: $color-gray-dark, $alpha: 0.5);
+        }
         .temperature {
           position: relative;
           display: inline-block;
