@@ -6,9 +6,9 @@ class LocationContainer extends React.Component {
     render() {
         return (
             <Location
-                city={this.props.localState.city}
-                location={this.props.localState.country}
-                date={this.props.date}
+                // city={this.props.localState.city}
+                // location={this.props.localState.country}
+                // date={this.props.date}
             />
         )
     }

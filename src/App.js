@@ -7,37 +7,7 @@ import WeatherContainer from './components/Weather/WeatherContainer';
 
 
 
-const api = {
-  key: "994bd4a435f53712abee778d3ae2740d",
-  baseURL: "https://api.openweathermap.org/data/2.5/"
-}
-
 export default class components extends Component {
-  state = {
-    temperature: undefined,
-    city: undefined,
-    country: undefined,
-    wind: undefined,
-    description: undefined,
-    icon: undefined,
-    error: undefined,
-  }
-
-  getWeather = async (e) => {
-    e.preventDefault();
-    const citySearch = e.target.elements.city.value;
-    const api_call = await fetch(`${api.baseURL}weather?q=${citySearch}&units=metric&APPID=${api.key} `);
-    const dataWeather = await api_call.json();
-    // console.log('dataWeather: ', dataWeather);
-    this.setState({
-      temperature: dataWeather.main.temp,
-      city: dataWeather.name,
-      country: dataWeather.sys.country,
-      wind: dataWeather.wind.speed,
-      description: dataWeather.weather[0].description,
-      icon: dataWeather.weather[0].icon,
-    })
-  }
 
   dataBuilder = (d) => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -50,18 +20,19 @@ export default class components extends Component {
   }
 
   render() {
-    // console.log('App state: ',this.state)
+
     return (
       <Provider store={store}>
-      <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}>
-        <main>
-          <SearchContainer getWeather={this.getWeather} />
-          <div>
-            <LocationContainer localState={this.state} date={this.dataBuilder(new Date())} />
-            <WeatherContainer localState={this.state}/>
-          </div>
-        </main>
-      </div>
+        {/* <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}> */}
+        <div className='app'>
+          <main>
+            <SearchContainer />
+            <div>
+              <LocationContainer date={this.dataBuilder(new Date())} />
+              <WeatherContainer />
+            </div>
+          </main>
+        </div>
       </Provider>
     );
   }

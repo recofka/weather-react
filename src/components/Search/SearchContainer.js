@@ -1,14 +1,23 @@
 import React from 'react';
 import Search from './Search';
-
+import { fetchWeather } from '../../actions/weatherCity';
+import { connect } from 'react-redux';
 
 class SearchContainer extends React.Component {
 
+  getWeather = async (e) => {
+    e.preventDefault();
+    this.props.fetchWeather(e.target.city.value)
+  }
+
   render() {
     return (
-      <Search getWeather={this.props.getWeather} />
+      <div>
+        <Search getWeather={this.getWeather} />
+      </div>
     )
   }
 };
 
-export default SearchContainer;
+export default connect(null, { fetchWeather })(SearchContainer);
+
