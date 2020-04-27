@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Search from './components/Search';
+import SearchContainer from './components/Search/SearchContainer';
 import Location from './components/Location';
 import Weather from './components/Weather';
+
 
 const api = {
   key: "994bd4a435f53712abee778d3ae2740d",
@@ -50,7 +51,8 @@ export default class components extends Component {
     return (
       <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}>
         <main>
-        <Search getWeather={this.getWeather} />
+        
+        <SearchContainer getWeather={this.getWeather}/>
         <div>
           <Location city={this.state.city} location={this.state.country} date={this.dataBuilder(new Date())} />
           <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
