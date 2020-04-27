@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SearchContainer from './components/Search/SearchContainer';
-import Location from './components/Location';
+import LocationContainer from './components/Location/LocationContainer';
 import Weather from './components/Weather';
+
 
 
 const api = {
@@ -54,7 +55,7 @@ export default class components extends Component {
         
         <SearchContainer getWeather={this.getWeather}/>
         <div>
-          <Location city={this.state.city} location={this.state.country} date={this.dataBuilder(new Date())} />
+          <LocationContainer localState={this.state} date={this.dataBuilder(new Date())} />
           <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
         </div>
         </main>
