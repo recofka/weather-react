@@ -27,8 +27,9 @@ class LocationContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        country: state.cityWeather[0] && state.cityWeather[0].sys.country,
-        city: state.cityWeather[0] && state.cityWeather[0].name
+        country: state.weather.cityWeather && state.weather.cityWeather.sys.country,
+        city: state.weather.cityWeather && state.weather.cityWeather.name
+
     });
 
 export default connect(mapStateToProps)(LocationContainer);
