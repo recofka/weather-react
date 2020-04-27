@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SearchContainer from './components/Search/SearchContainer';
 import LocationContainer from './components/Location/LocationContainer';
-import Weather from './components/Weather';
+import Weather from './components/Weather/Weather';
+import WeatherContainer from './components/Weather/WeatherContainer';
 
 
 
@@ -52,12 +53,12 @@ export default class components extends Component {
     return (
       <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}>
         <main>
-        
-        <SearchContainer getWeather={this.getWeather}/>
-        <div>
-          <LocationContainer localState={this.state} date={this.dataBuilder(new Date())} />
-          <Weather  temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon}/>
-        </div>
+          <SearchContainer getWeather={this.getWeather} />
+          <div>
+            <LocationContainer localState={this.state} date={this.dataBuilder(new Date())} />
+            <WeatherContainer localState={this.state}/>
+            {/* <Weather temperature={this.state.temperature} weatherState={this.state.description} icon={this.state.icon} /> */}
+          </div>
         </main>
       </div>
     );
