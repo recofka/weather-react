@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Search = props => (
+export default ({ getWeather }) => (
     <div className="search-box">
-        <form onSubmit={props.getWeather}>
+        <form onSubmit={getWeather}>
             <input
                 type="text"
                 name="city"
@@ -11,5 +11,3 @@ const Search = props => (
             />
         </form>
     </div>)
-
-export default Search;
