@@ -21,7 +21,7 @@
 #### 👀👇 Click links to view some samples in this project 👇👀
 
 - **[React](https://github.com/recofka/weather-react/blob/master/src/App.js)**
-- **[Redux](https://github.com/recofka/weather-react/tree/master/src/reducers)
+- **[Redux](https://github.com/recofka/weather-react/tree/master/src/reducers)**
 
 
 
