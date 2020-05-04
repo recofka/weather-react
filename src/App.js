@@ -26,7 +26,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => (
   {
-    temperature: state.weather.cityWeather && state.weather.cityWeather.main.temp,
+    temperature: state.currentWeather.cityWeather && state.currentWeather.cityWeather.main.temp,
 
   });
 
