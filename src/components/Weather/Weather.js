@@ -4,7 +4,7 @@ export default ({ temperature, weatherState, icon }) => {
     if (!temperature) {
         return (
             <div className="weather-box">
-                <div className=" type-message"> Type your city</div>
+                <div className=" type-message">Type your city</div>
             </div>
         )
     }

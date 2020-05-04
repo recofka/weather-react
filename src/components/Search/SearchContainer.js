@@ -7,7 +7,9 @@ class SearchContainer extends React.Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    return this.props.fetchWeather(e.target.city.value)
+    return (
+      this.props.fetchWeather(e.target.city.value),
+      e.target.city.value = '')
   }
 
   render() {

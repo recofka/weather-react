@@ -104,6 +104,7 @@ body {
             rgba($color: $color-white, $alpha: 0.2);
         }
         .weather-state {
+          text-transform: capitalize;
           color: $color-white;
           font-size: 3rem;
           font-weight: 700;
