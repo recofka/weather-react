@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import store from './store';
-import { Provider } from 'react-redux';
+import React from 'react';
+import { connect } from 'react-redux';
 import SearchContainer from './components/Search/SearchContainer';
 import LocationContainer from './components/Location/LocationContainer';
 import WeatherContainer from './components/Weather/WeatherContainer';
 
-
-
-export default class components extends Component {
+class App extends React.Component {
 
   render() {
+    const { temperature } = this.props
     return (
-      <Provider store={store}>
-        {/* <div className={typeof this.state.temperature != "undefined" ? ((this.state.temperature > 18) ? 'app warm' : 'app') : 'app'}> */}
-        <div className='app'>
-          <main>
-            <SearchContainer />
-            <div>
-              <LocationContainer />
-              <WeatherContainer />
-            </div>
-          </main>
-        </div>
-      </Provider>
+      <div className={(temperature > 18) ? 'app warm' : 'app'}>
+        {/* //  <div className="app warm"> */}
+        <main>
+          <SearchContainer />
+          <div>
+            <LocationContainer />
+            <WeatherContainer />
+          </div>
+        </main>
+      </div>
+
     );
   }
 }
+
+const mapStateToProps = state => (
+  {
+    temperature: state.weather.cityWeather && state.weather.cityWeather.main.temp,
+
+  });
+
+export default connect(mapStateToProps)(App);
