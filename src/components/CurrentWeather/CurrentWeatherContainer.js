@@ -1,13 +1,13 @@
 import React from 'react';
-import Weather from './Weather';
+import CurrentWeather from './CurrentWeather';
 import { connect } from 'react-redux';
 
-class WeatherContainer extends React.Component {
+class CurrentWeatherContainer extends React.Component {
 
     render() {
         const { temperature, weatherState, icon } = this.props;
         return (
-            <Weather
+            <CurrentWeather
                 temperature={temperature}
                 weatherState={weatherState}
                 icon={icon}
@@ -24,6 +24,6 @@ const mapStateToProps = state => (
 
     });
 
-export default connect(mapStateToProps)(WeatherContainer);
+export default connect(mapStateToProps)(CurrentWeatherContainer);
 
 

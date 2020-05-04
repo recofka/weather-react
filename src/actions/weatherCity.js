@@ -22,9 +22,9 @@ export const fetchCurrentWeather = (city) => (dispatch, getState) => {
 // ####Fetch City => Weather per hour 5 days####
 export const FIVE_DAYS_WEATHER_FETCHED = 'FIVE_DAYS_WEATHER_FETCHED';
 
-const fiveDaysWeatherFetched = FiveDaysWeather => ({
+const fiveDaysWeatherFetched = fiveDaysWeather => ({
   type: FIVE_DAYS_WEATHER_FETCHED,
-  FiveDaysWeather
+  fiveDaysWeather
 });
 
 export const fetchFiveDaysWeather = (city) => (dispatch, getState) => {
