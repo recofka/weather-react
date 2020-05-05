@@ -8,7 +8,6 @@ import FiveDaysWeatherContainer from './components/MoreDaysWeather/MoreDaysWeath
 class App extends React.Component {
 
   render() {
-
     const { temperature } = this.props
     return (
       <div className={(temperature > 18) ? 'app warm' : 'app'}>
@@ -21,7 +20,6 @@ class App extends React.Component {
           </div>
         </main>
       </div>
-
     );
   }
 }

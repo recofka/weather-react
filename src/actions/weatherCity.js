@@ -9,16 +9,6 @@ const coordinatesFetched = coord => ({
   coord
 });
 
-export const fetchCoordinates = (city) => (dispatch, getState) => {
-  if (getState().city)
-    return
-  request(`${api.baseURL}weather?q=${city}&units=metric&APPID=${api.key} `)
-    .then(response => {
-      dispatch(coordinatesFetched(response.body))
-    })
-    .catch(console.error)
-};
-
 // ####Fetch City => Weather per hour 5 days####
 export const WEATHER_FETCHED = 'WEATHER_FETCHED';
 
@@ -27,13 +17,22 @@ const weatherFetched = weatherFetched => ({
   weatherFetched
 });
 
-export const fetchWeather = (lon, lat) => (dispatch, getState) => {
-  if (getState().lon)
-    return
-  request(`${api.baseURL}onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly&APPID=${api.key} `)
+
+export const fetchCoordinates = (city) => (dispatch) => {
+  return request(`${api.baseURL}weather?q=${city}&units=metric&APPID=${api.key} `)
     .then(response => {
-      dispatch(weatherFetched(response.body))
+      dispatch(coordinatesFetched(response.body))
+      return response.body.coord
+    }).then(({ lon, lat }) => {
+      return request(`${api.baseURL}onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly&APPID=${api.key} `)
+        .then(response => {
+          dispatch(weatherFetched(response.body))
+          //Always return the primise
+          return response.body;
+        })
     })
     .catch(console.error)
 };
+
+
 

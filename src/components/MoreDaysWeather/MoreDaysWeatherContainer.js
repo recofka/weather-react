@@ -1,18 +1,14 @@
 import React from 'react';
 import MoreDaysWeather from './MoreDaysWeather';
-import { fetchWeather } from '../../actions/weatherCity';
 import { connect } from 'react-redux';
 
 class MoreDaysWeatherContainer extends React.Component {
 
     render() {
-        const { lon, lat } = this.props;
-        if (lon !== "") {
-            this.props.fetchWeather(lon, lat);
-        }
-
+        const { list } = this.props;
         return (
             <MoreDaysWeather
+                daysList={list}
             />
         )
     }
@@ -20,8 +16,7 @@ class MoreDaysWeatherContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        lon: state.coordinates && state.coordinates.cityCoord.lon,
-        lat: state.coordinates && state.coordinates.cityCoord.lat
+        list: state.weather && state.weather.daily && [...state.weather.daily].splice(1)
     });
 
-export default connect(mapStateToProps, { fetchWeather })(MoreDaysWeatherContainer);
+export default connect(mapStateToProps, null)(MoreDaysWeatherContainer);

@@ -6,7 +6,6 @@ export default (state = '', action) => {
             case COORD_FETCHED:
                   return {
                         ...state,
-                        cityCoord: action.coord.coord,
                         name: action.coord.name,
                         country: action.coord.sys.country,
                         timeZone: action.coord.timeZone

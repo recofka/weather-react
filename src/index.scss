@@ -112,11 +112,17 @@ body {
       }
 
       .five-weather-box {
-        border: 1px solid peru;
+        // border: 1px solid peru;
 
         .days-weather-block {
+          display: flex;
+          flex-direction: row;
+
           .days-weather {
-            border: 1px solid peru;
+            border: 1px solid blueviolet;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
           }
         }
       }
