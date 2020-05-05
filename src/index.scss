@@ -17,11 +17,9 @@ body {
   font-family: "montseratt", sans-serif;
 
   .app {
-    background: linear-gradient(
-      15deg,
-      $color-cold-secondary 0%,
-      $color-cold-primary 100%
-    );
+    background: linear-gradient(15deg,
+        $color-cold-secondary 0%,
+        $color-cold-primary 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -57,33 +55,35 @@ body {
           }
         }
       }
+
       .location-box {
         .location {
           color: $color-white;
           font-size: 2rem;
           font-weight: 500;
           text-align: center;
-          text-shadow: 0.125rem 0.125rem
-            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-shadow: 0.125rem 0.125rem rgba($color: $color-gray-dark, $alpha: 0.5);
         }
+
         .date {
           color: $color-white;
           font-size: 1.25rem;
           font-style: italic;
           text-align: center;
-          text-shadow: 0.125rem 0.125rem
-            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-shadow: 0.125rem 0.125rem rgba($color: $color-gray-dark, $alpha: 0.5);
         }
       }
-      .weather-box {
+
+      .current-weather-box {
         text-align: center;
+
         .type-message {
           color: $color-white;
           font-size: 2.375rem;
           font-weight: 900;
-          text-shadow: 0.1875rem 0.1875rem
-            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
         }
+
         .temperature {
           position: relative;
           display: inline-block;
@@ -97,28 +97,41 @@ body {
           font-size: 6.375rem;
           font-weight: 900;
 
-          text-shadow: 0.1875rem 0.1875rem
-            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
           text-align: center;
-          box-shadow: 0.1875rem 0.1875rem
-            rgba($color: $color-white, $alpha: 0.2);
+          box-shadow: 0.1875rem 0.1875rem rgba($color: $color-white, $alpha: 0.2);
         }
+
         .weather-state {
+          text-transform: capitalize;
           color: $color-white;
           font-size: 3rem;
           font-weight: 700;
-          text-shadow: 0.1875rem 0.1875rem
-            rgba($color: $color-gray-dark, $alpha: 0.5);
+          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
+        }
+      }
+
+      .five-weather-box {
+        // border: 1px solid peru;
+
+        .days-weather-block {
+          display: flex;
+          flex-direction: row;
+
+          .days-weather {
+            border: 1px solid blueviolet;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+          }
         }
       }
     }
   }
 
   .warm {
-    background: linear-gradient(
-      15deg,
-      $color-warm-secondary 50%,
-      $color-warm-primary 100%
-    );
+    background: linear-gradient(15deg,
+        $color-warm-secondary 50%,
+        $color-warm-primary 100%);
   }
 }
