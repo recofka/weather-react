@@ -33,6 +33,3 @@ export const fetchCoordinates = (city) => (dispatch) => {
     })
     .catch(console.error)
 };
-
-
-

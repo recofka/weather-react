@@ -22,4 +22,3 @@ class SearchContainer extends React.Component {
 };
 
 export default connect(null, { fetchCoordinates })(SearchContainer);
-
