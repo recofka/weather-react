@@ -112,6 +112,14 @@ body {
             rgba($color: $color-gray-dark, $alpha: 0.5);
         }
       }
+      .five-weather-box {
+        border: 1px solid peru;
+        .days-weather-block {
+          .days-weather {
+            border: 1px solid peru;
+          }
+        }
+      }
     }
   }
 

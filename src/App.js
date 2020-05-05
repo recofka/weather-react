@@ -16,8 +16,6 @@ class App extends React.Component {
           <div>
             <LocationContainer />
             <CurrentWeatherContainer />
-          </div>
-          <div>
             <FiveDaysWeatherContainer />
           </div>
         </main>

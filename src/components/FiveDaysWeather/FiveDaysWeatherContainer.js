@@ -1,13 +1,18 @@
 import React from 'react';
 import FiveDaysWeather from './FiveDaysWeather';
+import { fetchFiveDaysWeather } from '../../actions/weatherCity';
 import { connect } from 'react-redux';
 
 class FiveDaysWeatherContainer extends React.Component {
 
     render() {
-        const { list } = this.props;
+        const { lon, lat } = this.props;
+        if (lon !== "") {
+            this.props.fetchFiveDaysWeather(lon, lat);
+        }
+
         return (
-            <FiveDaysWeather daysList={list}
+            <FiveDaysWeather
 
             />
         )
@@ -16,7 +21,8 @@ class FiveDaysWeatherContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        list: state.listFiveDaysWeather.listWeather && state.listFiveDaysWeather.listWeather.fiveDaysWeather
+        lon: state.currentWeather && state.currentWeather.cityWeather.coord.lon,
+        lat: state.currentWeather && state.currentWeather.cityWeather.coord.lat
     });
 
-export default connect(mapStateToProps)(FiveDaysWeatherContainer);
+export default connect(mapStateToProps, { fetchFiveDaysWeather })(FiveDaysWeatherContainer);

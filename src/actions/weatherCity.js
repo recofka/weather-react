@@ -27,12 +27,14 @@ const fiveDaysWeatherFetched = fiveDaysWeather => ({
   fiveDaysWeather
 });
 
-export const fetchFiveDaysWeather = (city) => (dispatch, getState) => {
-  if (getState().city)
+export const fetchFiveDaysWeather = (lon, lat) => (dispatch, getState) => {
+  if (getState().lon)
     return
-  request(`${api.baseURL}forecast?q=${city}&units=metric&APPID=${api.key} `)
+  request(`${api.baseURL}onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly&APPID=${api.key} `)
     .then(response => {
       dispatch(fiveDaysWeatherFetched(response.body.list))
+      console.log('response', response.body)
     })
     .catch(console.error)
 };
+

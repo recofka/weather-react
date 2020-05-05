@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from './Search';
-import { fetchCurrentWeather, fetchFiveDaysWeather } from '../../actions/weatherCity';
+import { fetchCurrentWeather } from '../../actions/weatherCity';
 import { connect } from 'react-redux';
 
 class SearchContainer extends React.Component {
@@ -9,7 +9,6 @@ class SearchContainer extends React.Component {
     e.preventDefault();
     return (
       this.props.fetchCurrentWeather(e.target.city.value),
-      this.props.fetchFiveDaysWeather(e.target.city.value),
       e.target.city.value = '')
   }
 
@@ -22,5 +21,5 @@ class SearchContainer extends React.Component {
   }
 };
 
-export default connect(null, { fetchCurrentWeather, fetchFiveDaysWeather })(SearchContainer);
+export default connect(null, { fetchCurrentWeather })(SearchContainer);
 
