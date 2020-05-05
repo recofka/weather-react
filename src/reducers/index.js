@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import currentWeather from './currentWeather';
-import listFiveDaysWeather from './fiveDaysWeather';
+import coordinates from './coordinates';
+import weather from './weather';
 
 
 export default combineReducers({
-    currentWeather,
-    listFiveDaysWeather
+    coordinates,
+    weather
 });
