@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SearchContainer from './components/Search/SearchContainer';
 import LocationContainer from './components/Location/LocationContainer';
-import WeatherContainer from './components/Weather/WeatherContainer';
+import CurrentWeatherContainer from './components/CurrentWeather/CurrentWeatherContainer';
+import FiveDaysWeatherContainer from './components/MoreDaysWeather/MoreDaysWeatherContainer';
 
 class App extends React.Component {
 
@@ -10,23 +11,22 @@ class App extends React.Component {
     const { temperature } = this.props
     return (
       <div className={(temperature > 18) ? 'app warm' : 'app'}>
-        {/* //  <div className="app warm"> */}
         <main>
           <SearchContainer />
           <div>
             <LocationContainer />
-            <WeatherContainer />
+            <CurrentWeatherContainer />
+            <FiveDaysWeatherContainer />
           </div>
         </main>
       </div>
-
     );
   }
 }
 
 const mapStateToProps = state => (
   {
-    temperature: state.weather.cityWeather && state.weather.cityWeather.main.temp,
+    temperature: state.weather && state.weather.current.temp,
 
   });
 
