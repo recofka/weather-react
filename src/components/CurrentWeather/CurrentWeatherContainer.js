@@ -1,6 +1,7 @@
 import React from 'react';
 import CurrentWeather from './CurrentWeather';
 import { connect } from 'react-redux';
+import './index.scss';
 
 class CurrentWeatherContainer extends React.Component {
 

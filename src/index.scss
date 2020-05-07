@@ -30,7 +30,7 @@ body {
 
       .search-box {
         width: 100%;
-        margin: 0 0 4.6875rem;
+        margin: 0 0 2.6875rem;
 
         .search-bar {
           display: block;
@@ -56,60 +56,9 @@ body {
         }
       }
 
-      .location-box {
-        .location {
-          color: $color-white;
-          font-size: 2rem;
-          font-weight: 500;
-          text-align: center;
-          text-shadow: 0.125rem 0.125rem rgba($color: $color-gray-dark, $alpha: 0.5);
-        }
 
-        .date {
-          color: $color-white;
-          font-size: 1.25rem;
-          font-style: italic;
-          text-align: center;
-          text-shadow: 0.125rem 0.125rem rgba($color: $color-gray-dark, $alpha: 0.5);
-        }
-      }
 
-      .current-weather-box {
-        text-align: center;
 
-        .type-message {
-          color: $color-white;
-          font-size: 2.375rem;
-          font-weight: 900;
-          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
-        }
-
-        .temperature {
-          position: relative;
-          display: inline-block;
-          margin: 30px auto;
-          background-color: rgba($color: $color-white, $alpha: 0.2);
-          border-radius: 1rem;
-
-          padding: 0.9375rem 1.5625rem;
-
-          color: $color-white;
-          font-size: 6.375rem;
-          font-weight: 900;
-
-          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
-          text-align: center;
-          box-shadow: 0.1875rem 0.1875rem rgba($color: $color-white, $alpha: 0.2);
-        }
-
-        .weather-state {
-          text-transform: capitalize;
-          color: $color-white;
-          font-size: 3rem;
-          font-weight: 700;
-          text-shadow: 0.1875rem 0.1875rem rgba($color: $color-gray-dark, $alpha: 0.5);
-        }
-      }
 
       .five-weather-box {
         // border: 1px solid peru;
