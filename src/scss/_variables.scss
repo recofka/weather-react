@@ -1,15 +1,13 @@
 $color-warm-primary: #fd803f;
 $color-warm-secondary: #f9445a;
 $color-cold-primary: #2f93cc;
-$color-cold-secondary: #4c19c6;
+$color-cold-secondary: #84a9ac;
 $color-gray-med: #313131;
 $color-gray-dark: #323246;
 $color-white: #fff;
 $color-black: #000;
 
 @import url('https://fonts.googleapis.com/css?family=Archivo:700&display=swap');
-
-
 
 @mixin font() {
     font-family: 'Archivo', sans-serif;

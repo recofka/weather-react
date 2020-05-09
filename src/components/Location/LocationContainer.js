@@ -2,7 +2,8 @@ import React from 'react';
 import Location from './Location';
 import { Unix_timestamp } from '../../Helper';
 import { connect } from 'react-redux';
-import './index.scss';
+import './location.scss';
+
 
 class LocationContainer extends React.Component {
     render() {
