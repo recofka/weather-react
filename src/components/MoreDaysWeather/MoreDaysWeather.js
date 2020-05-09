@@ -1,5 +1,7 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import { Unix_timestamp } from './../../Helper'
+import './moreDaysWeather.scss';
 
 
 export default ({ daysList }) => {
@@ -8,16 +10,18 @@ export default ({ daysList }) => {
     }
 
     return (
-        <div className="five-weather-box">
-            <div className="days-weather-block">
+        <div className="days-weather-box">
+            <div className="days-block">
                 {daysList.map(list => {
                     return (
-                        <div className="days-weather" key={list.dt}>
-                            <p>{Unix_timestamp(list.dt)}</p>
-                            <p>Max: {Math.round(list.temp.min)} °c</p>
-                            <p>Min: {Math.round(list.temp.max)} °c</p>
-                            <p>Main Condition: {list.weather[0].main}</p>
-
+                        <div className="days-content" key={list.dt}>
+                            <p className="weather-text-content">{Unix_timestamp(list.dt).slice(0, 3)}</p>
+                            <img
+                                className="weather-img-content"
+                                src={`http://openweathermap.org/img/wn/${list.weather[0].icon}@2x.png`}
+                                alt="Icon wheather" />
+                            <p className="weather-text-content">{Math.round(list.temp.min)}°c</p>
+                            <p className="weather-text-content">{Math.round(list.temp.max)}°c</p>
                         </div>)
                 }
                 )

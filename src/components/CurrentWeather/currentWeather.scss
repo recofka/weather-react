@@ -1,0 +1,36 @@
+@import './../../scss/variables';
+
+.current-weather-box {
+  text-align: center;
+
+  .type-city {
+    @include shadow(medium);
+    @include font;
+    font-size: 2.375rem;
+    font-weight: 900;
+  }
+
+  .temp-icon {
+    @include shadow(medium);
+    @include font;
+    font-size: 4.75rem;
+    font-weight: 900;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+  }
+
+  .weather-state {
+    @include shadow(medium);
+    @include font;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}
