@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import { fetchCoordinates } from '../../actions/weatherCity';
 import { connect } from 'react-redux';
+import './search.scss';
 
 class SearchContainer extends React.Component {
 

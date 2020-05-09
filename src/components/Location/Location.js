@@ -9,7 +9,6 @@ export default ({ city, location, date }) => {
             <div className="location-box">
                 <div className="location">
                     <p className="location-city">Type your city</p>
-                    {/* <RoomIcon className="location-icon"/> */}
                 </div>
             </div>
         )

@@ -1,0 +1,29 @@
+@import './../../scss/variables';
+
+.search-box {
+  width: 100%;
+  margin: 0 0 2.6875rem;
+
+  .search-bar {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    padding: 0.9375rem;
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    background-color: rgba($color: $color-white, $alpha: 0.5);
+    border-radius: 0 0 1rem 1rem;
+    margin-top: -1.5625rem;
+    box-shadow: 0 0.1875rem rgba($color: $color-black, $alpha: 0.2);
+
+    font-size: 1.25rem;
+    color: $color-gray-med;
+    transition: 0.4 ease;
+
+    &:focus {
+      background-color: rgba($color: $color-white, $alpha: 0.75);
+    }
+  }
+}

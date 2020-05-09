@@ -4,13 +4,17 @@
   text-align: center;
 
   .type-city {
-    color: $color-white;
+    @include shadow(medium);
+    @include font;
     font-size: 2.375rem;
     font-weight: 900;
-    @include shadow(medium);
   }
 
   .temp-icon {
+    @include shadow(medium);
+    @include font;
+    font-size: 4.75rem;
+    font-weight: 900;
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
@@ -20,18 +24,13 @@
     align-items: center;
     -webkit-align-content: stretch;
     align-content: stretch;
-    color: $color-white;
-    font-size: 4.75rem;
-    font-weight: 900;
-    @include shadow(medium);
   }
 
   .weather-state {
-    font-family: 'Archivo', sans-serif;
-    text-transform: capitalize;
-    color: $color-white;
+    @include shadow(medium);
+    @include font;
     font-size: 1.5rem;
     font-weight: 700;
-    @include shadow(medium);
+    text-transform: capitalize;
   }
 }
