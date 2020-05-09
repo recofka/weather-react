@@ -3,7 +3,6 @@ import CurrentWeather from './CurrentWeather';
 import { connect } from 'react-redux';
 import './currentWeather.scss';
 
-
 class CurrentWeatherContainer extends React.Component {
 
     render() {
