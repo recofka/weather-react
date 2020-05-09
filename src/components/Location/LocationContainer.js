@@ -4,6 +4,7 @@ import { Unix_timestamp } from '../../Helper';
 import { connect } from 'react-redux';
 import './location.scss';
 
+
 class LocationContainer extends React.Component {
     render() {
         const { country, city, date } = this.props;
