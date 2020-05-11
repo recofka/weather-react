@@ -1,27 +1,18 @@
 import React from 'react';
 import Location from './Location';
-import { Unix_timestamp } from '../../Helper';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './index.scss';
 
-class LocationContainer extends React.Component {
-    render() {
-        const { country, city, date } = this.props;
-        return (
-            <Location
-                city={city}
-                location={country}
-                date={Unix_timestamp(date)}
-            />
-        )
-    }
+const LocationContainer =() => {
+
+    const coordinates = useSelector(({ coordinates, weather }) => ({
+        country: coordinates?.country,
+        city: coordinates?.name,
+        date: weather?.current?.dt
+    }))
+
+    return <Location {...coordinates} />
+ 
 };
 
-const mapStateToProps = state => (
-    {
-        country: state?.coordinates?.country,
-        city: state?.coordinates?.name,
-        date: state.weather?.current?.dt
-    });
-
-export default connect(mapStateToProps)(LocationContainer);
+export default LocationContainer;

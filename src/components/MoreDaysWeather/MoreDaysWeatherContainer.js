@@ -1,22 +1,14 @@
 import React from 'react';
 import MoreDaysWeather from './MoreDaysWeather';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-class MoreDaysWeatherContainer extends React.Component {
+const MoreDaysWeatherContainer = () => {
 
-    render() {
-        const { list } = this.props;
-        return (
-            <MoreDaysWeather
-                daysList={list}
-            />
-        )
-    }
+    const weather = useSelector(({ weather }) => ({
+        list: weather?.daily && [...weather.daily].splice(1)
+    }))
+
+    return <MoreDaysWeather {...weather} />
+
 }
-
-const mapStateToProps = state => (
-    {
-        list: state.weather?.daily && [...state.weather.daily].splice(1)
-    });
-
-export default connect(mapStateToProps, null)(MoreDaysWeatherContainer);
+export default MoreDaysWeatherContainer;
