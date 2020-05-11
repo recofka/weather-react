@@ -1,16 +1,16 @@
 
-import { COORD_FETCHED } from '../actions/weatherCity';
+import { COORD_FETCHED } from '../actions/actionsType';
 
-export default (state = '', action) => {
-      switch (action.type) {
-            case COORD_FETCHED:
-                  return {
-                        ...state,
-                        name: action.coord.name,
-                        country: action.coord.sys.country,
-                        timeZone: action.coord.timeZone
-                  }
-            default:
-                  return state
-      }
+export default (state = '', { type, payload }) => {
+    switch (type) {
+        case COORD_FETCHED:
+            return {
+                ...state,
+                name: payload.name,
+                country: payload.sys.country,
+                timeZone: payload.timeZone
+            }
+        default:
+            return state
+    }
 }
