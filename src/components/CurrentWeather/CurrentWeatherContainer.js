@@ -1,28 +1,16 @@
 import React from 'react';
 import CurrentWeather from './CurrentWeather';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './currentWeather.scss';
 
-class CurrentWeatherContainer extends React.Component {
+const CurrentWeatherContainer = () => {
+    const weather = useSelector(({ weather }) => ({
+        temperature: weather && weather.current.temp,
+        weatherState: weather && weather.current.weather[0].description,
+        icon: weather && weather.current.weather[0].icon
 
-    render() {
-        const { temperature, weatherState, icon } = this.props;
-        return (
-            <CurrentWeather
-                temperature={temperature}
-                weatherState={weatherState}
-                icon={icon}
-            />
-        )
-    }
-};
+    }))
+    return <CurrentWeather { ...weather }/>
+  }
 
-const mapStateToProps = state => (
-    {
-        temperature: state.weather && state.weather.current.temp,
-        weatherState: state.weather && state.weather.current.weather[0].description,
-        icon: state.weather && state.weather.current.weather[0].icon
-
-    });
-
-export default connect(mapStateToProps)(CurrentWeatherContainer);
+  export default CurrentWeatherContainer;
