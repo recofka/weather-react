@@ -19,10 +19,9 @@ class CurrentWeatherContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        temperature: state.weather && state.weather.current.temp,
-        weatherState: state.weather && state.weather.current.weather[0].description,
-        icon: state.weather && state.weather.current.weather[0].icon
-
+        temperature: state.weather?.current?.temp,
+        weatherState: state.weather?.current?.weather[0].description,
+        icon: state.weather?.current?.weather[0].icon,
     });
 
 export default connect(mapStateToProps)(CurrentWeatherContainer);

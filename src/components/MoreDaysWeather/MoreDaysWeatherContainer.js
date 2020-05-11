@@ -16,7 +16,7 @@ class MoreDaysWeatherContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        list: state.weather && state.weather.daily && [...state.weather.daily].splice(1)
+        list: state.weather?.daily && [...state.weather.daily].splice(1)
     });
 
 export default connect(mapStateToProps, null)(MoreDaysWeatherContainer);

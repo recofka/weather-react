@@ -2,7 +2,7 @@ import React from 'react';
 import Location from './Location';
 import { Unix_timestamp } from '../../Helper';
 import { connect } from 'react-redux';
-import './location.scss';
+import './index.scss';
 
 class LocationContainer extends React.Component {
     render() {
@@ -19,9 +19,9 @@ class LocationContainer extends React.Component {
 
 const mapStateToProps = state => (
     {
-        country: state && state.coordinates.country,
-        city: state && state.coordinates.name,
-        date: state.weather && state.weather.current.dt
+        country: state?.coordinates?.country,
+        city: state?.coordinates?.name,
+        date: state.weather?.current?.dt
     });
 
 export default connect(mapStateToProps)(LocationContainer);
