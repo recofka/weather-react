@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from "react";
 
-export default ({ temperature, weatherState, icon }) => (
+export default ({ temperature, weatherState, icon, humidity, wind, feelsLike }) => (
     <div className="current-weather-box">
         <div className="temp-icon">
             {!temperature ?
@@ -14,6 +14,11 @@ export default ({ temperature, weatherState, icon }) => (
                     </Fragment>
                 )}
         </div>
-        <p className="weather-state">{weatherState}</p>
+        {temperature && <p className="weather-state">{weatherState}</p>}
+        <div className="weather-state-more">
+            {temperature && <p className="">Feels Like: {Math.round(feelsLike)}°c</p>}
+            {temperature && <p className="">Humidity: {humidity}%</p>}
+            {temperature && <p className="">Wind Speed: {wind}km/h</p>}
+        </div>
     </div>
 );
