@@ -1,12 +1,12 @@
-import { WEATHER_FETCHED } from '../actions/weatherCity';
+import { WEATHER_FETCHED } from '../actions/actionsType';
 
-export default (state = '', action) => {
-    switch (action.type) {
+export default (state = '', { type, payload }) => {
+    switch (type) {
         case WEATHER_FETCHED:
             return {
                 ...state,
-                current: action.weatherFetched.current,
-                daily: action.weatherFetched.daily
+                current: payload.current,
+                daily: payload.daily
             }
         default:
             return state
